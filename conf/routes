@@ -1,0 +1,6 @@
+GET      /hello                     controllers.CheckController.hello
+GET     /helloDude                    controllers.CheckController.helloDude
+
+POST /check                         controllers.CheckController.create
+GET /checks                         controllers.CheckController.list
+
