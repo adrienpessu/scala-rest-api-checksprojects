@@ -14,5 +14,5 @@ sbt run
 # Checks - a check is an advance ping from a device
 
 insert : Ok
-list : WIP
+list : Ok
 last : pending

@@ -9,7 +9,8 @@ import play.api.mvc._
 import play.modules.reactivemongo._
 import reactivemongo.api.ReadPreference
 import reactivemongo.play.json.collection._
-import play.modules.reactivemongo.json._, ImplicitBSONHandlers._
+import reactivemongo.play.json._
+
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -46,7 +47,7 @@ class CheckController @Inject()(val reactiveMongoApi: ReactiveMongoApi)(implicit
       // let's do our query
       val futureChecksList: Future[List[Check]] = checksFuture.flatMap {
         // find all cities with name `name`
-        _.find(Json.obj("" -> "")).
+        _.find(Json.obj()).
           // perform the query and get a cursor of JsObject
           cursor[Check](ReadPreference.primary).
           // Coollect the results as a list

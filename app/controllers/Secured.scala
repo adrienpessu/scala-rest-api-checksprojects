@@ -27,7 +27,7 @@ object AuthenticatedAction extends ActionBuilder[AuthenticatedRequest] {
       val token = auth.get.substring(6).trim
       val secret = BaseEncoding.base64Url.omitPadding.decode("password")
 
-      val verifier: JWTVerifier = new JWTVerifier(secret, "zukC81ZvDrPhevLxMbT9ZqA7XfFv7mo4", "https://keendoo.eu.auth0.com/");
+      val verifier: JWTVerifier = new JWTVerifier(secret, "", "");
       val claims = verifier.verify(token)
 
       val user = User(claims.get("name").toString,
